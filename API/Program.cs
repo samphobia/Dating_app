@@ -12,7 +12,7 @@ builder.Services.AddIdentityServices(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
+ 
 
 var app = builder.Build();
 
