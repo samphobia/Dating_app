@@ -20,15 +20,8 @@ export class MemberListComponent implements OnInit {
   user: User | undefined;
   genderList = [{value: 'male', display: 'Males'}, {value: 'female', display: 'Females'}]
 
-  constructor(private memberService: MembersService, private accountService: AccountService) {
-    this.accountService.currentUser$.pipe(take(1)).subscribe({
-      next: user => {
-        if (user) {
-          this.userParams = new UserParams(user);
-          this.user = user;
-        }
-      }
-    })
+  constructor(private memberService: MembersService) {
+    this.userParams = this.memberService.getUserParams()
    }
   
   ngOnInit(): void {
