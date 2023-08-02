@@ -40,6 +40,14 @@ export class MembersService {
     this.userParams = params;
   }
 
+  resetUserParams() {
+    if (this.user) {
+      this.userParams = new UserParams(this.user);
+      return this.userParams;
+    }
+    return;
+  }
+
   getMembers(userParams: UserParams) {
     const response = this.memberCache.get(Object.values(userParams).join('-'));
 
